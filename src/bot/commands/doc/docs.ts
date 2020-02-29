@@ -27,19 +27,19 @@ export default class DocsCommand extends Command {
 			clientPermissions: [Permissions.FLAGS.EMBED_LINKS],
 			ratelimit: 2,
 			flags: ['--force', '-f', '--private', '-p'],
-			optionFlags: ['--default=', '--src='],
+			optionFlags: ['--default=', '-d=', '--src=', '-s='],
 		});
 	}
 
 	public *args() {
 		const defaultDocs = yield {
 			match: 'option',
-			flag: '--default=',
+			flag: ['--default=', '-d='],
 		};
 
 		const source = yield {
 			match: 'option',
-			flag: '--src=',
+			flag: ['--src=', '-s='],
 		};
 
 		const force = yield {
